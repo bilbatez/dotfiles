@@ -20,6 +20,7 @@ alias cmcd="cd $(cm source-path)"
 #Git
 alias ga="g add ."
 alias gc="g commit"
+alias gac="ga && gc"
 alias gca="g commit --amend"
 alias gcm="g commit -m"
 alias gch="g checkout"

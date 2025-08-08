@@ -37,6 +37,7 @@ shellcheck
 smartmontools
 sof-firmware
 ttf-jetbrains-mono
+vifm
 vim
 vulkan-intel
 vulkan-nouveau
