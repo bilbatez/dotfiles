@@ -6,7 +6,6 @@ cmake
 dmenu
 efibootmgr
 ethtool
-feh
 git
 gnu-netcat
 htop
@@ -37,6 +36,7 @@ shellcheck
 smartmontools
 sof-firmware
 ttf-jetbrains-mono
+vifm
 vim
 vulkan-intel
 vulkan-nouveau
