@@ -34,6 +34,7 @@ alias gst="g status"
 #CD
 alias dow="cd ~/Downloads"
 alias prj="cd ~/Projects"
+alias scr="cd ~/.u/scripts"
 
 #Edit
 alias eal="v $curr_dir/alias.sh"

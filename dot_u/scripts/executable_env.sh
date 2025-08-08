@@ -11,3 +11,4 @@ done
 export PATH=$PATH
 
 export TERMINAL=alacritty
+export MANPAGER="vim -M +MANPAGER -"
