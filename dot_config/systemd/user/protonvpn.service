@@ -1,0 +1,10 @@
+[Unit]
+Description=ProtonVPN
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/protonvpn-app
+
+[Install]
+WantedBy=default.target

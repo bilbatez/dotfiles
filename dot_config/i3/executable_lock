@@ -1,36 +1,34 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-BLANK='#00000000'
-CLEAR='#ffffff22'
-DEFAULT='#00897bE6'
-TEXT='#00897bE6'
-WRONG='#880000bb'
-VERIFYING='#00564dE6'
+home_dir="/home/bilbatez/.config/i3"
+tmpbg="/tmp/lock-screen.png"
 
-i3lock \
---insidever-color=$CLEAR     \
---ringver-color=$VERIFYING   \
-\
---insidewrong-color=$CLEAR   \
---ringwrong-color=$WRONG     \
-\
---inside-color=$BLANK        \
---ring-color=$DEFAULT        \
---line-color=$BLANK          \
---separator-color=$DEFAULT   \
-\
---verif-color=$TEXT          \
---wrong-color=$TEXT          \
---time-color=$TEXT           \
---date-color=$TEXT           \
---layout-color=$TEXT         \
---keyhl-color=$WRONG         \
---bshl-color=$WRONG          \
-\
---screen 1                   \
---blur 9                     \
---clock                      \
---indicator                  \
---time-str="%H:%M:%S"        \
---date-str="%A, %Y-%m-%d"       \
---keylayout 1                \
+scrot -o "$tmpbg"
+
+VALUE="60" #brightness value to compare to
+
+COLOR=$(magick "$tmpbg" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
+    -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
+if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
+    PARAM=(--inside-color=00000000 --ring-color=0000003e \
+        --clock \
+        -timestr="%H:%M:%S"  \
+        --date-str="%A, %m %Y" \
+        --line-color=00000000 --keyhl-color=ffffff80 --ringver-color=ffffff00 \
+        --separator-color=22222260 --insidever-color=ffffff1c \
+        --ringwrong-color=ffffff55 --insidewrong-color=ffffff1c)
+else #black
+    PARAM=(--inside-color=ffffff00 --ring-color=ffffff3e \
+        --time-color="#ffffff80" \
+        --date-color="#ffffff80" \
+        --clock \
+        -timestr="%H:%M:%S"  \
+        --date-str="%A, %m %Y" \
+        --line-color=ffffff00 --keyhl-color=00000080 --ringver-color=00000000 \
+        --separator-color=22222260 --insidever-color=0000001c \
+        --ringwrong-color=00000055 --insidewrong-color=0000001c)
+fi
+
+
+magick "$tmpbg" -blur -1x8 "$tmpbg"
+i3lock "${PARAM[@]}" -i "$tmpbg"

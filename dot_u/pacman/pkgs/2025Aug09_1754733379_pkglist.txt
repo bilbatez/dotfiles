@@ -1,5 +1,4 @@
 alacritty
-autorandr
 base
 base-devel
 btop
@@ -21,8 +20,6 @@ intel-ucode
 iw
 iwd
 jdk-openjdk
-keepass
-keepassxc
 libva-intel-driver
 lightdm
 lightdm-gtk-greeter

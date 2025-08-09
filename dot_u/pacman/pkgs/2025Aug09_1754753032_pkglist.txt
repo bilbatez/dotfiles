@@ -21,8 +21,6 @@ intel-ucode
 iw
 iwd
 jdk-openjdk
-keepass
-keepassxc
 libva-intel-driver
 lightdm
 lightdm-gtk-greeter
@@ -35,7 +33,6 @@ network-manager-applet
 networkmanager
 nmap
 nodejs-lts-jod
-proton-vpn-gtk-app
 pulseaudio
 rustup
 scrot
