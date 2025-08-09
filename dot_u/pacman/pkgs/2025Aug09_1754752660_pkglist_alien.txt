@@ -3,4 +3,3 @@ librewolf-bin
 librewolf-bin-debug
 paru
 paru-debug
-xautolock

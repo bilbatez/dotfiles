@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts i3lock at suspend time
+Before=suspend.target
+
+[Service]
+User=bilbatez
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/bilbatez/.config/i3/lock
+
+[Install]
+WantedBy=suspend.target

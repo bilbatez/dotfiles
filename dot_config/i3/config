@@ -212,6 +212,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Shortcut for Lockscreen
+bindsym $mod+x exec /home/bilbatez/.config/i3/lock
+
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
@@ -241,5 +244,4 @@ bar {
 # Display Wallpaper
 exec_always feh --bg-fill ~/Pictures/wallhaven-lym63y.jpg
 
-# Shortcut for Lockscreen
-bindsym $mod+x exec /home/bilbatez/.config/i3/lock
+exec xautolock -detectsleep -time 5 -locker "/home/bilbatez/.config/i3/lock"

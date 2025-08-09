@@ -21,8 +21,6 @@ intel-ucode
 iw
 iwd
 jdk-openjdk
-keepass
-keepassxc
 libva-intel-driver
 lightdm
 lightdm-gtk-greeter
@@ -31,7 +29,6 @@ linux-firmware
 man-db
 mesa-utils
 nano
-network-manager-applet
 networkmanager
 nmap
 nodejs-lts-jod

@@ -26,4 +26,7 @@ sudo "\n\n#Swapfile\n/dev/mapper/cryptswap none swap defaults 0 0\n" >> /etc/fst
 sudo mkinitcpio -P
 echo "swapfile configured!"
 
+sudo systemctl enable ~/config/systemd/user/screenlock.service
+echo "enable screenlock configuration!"
+
 echo "Reboot Recommended!"
