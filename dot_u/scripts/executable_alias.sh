@@ -43,6 +43,7 @@ alias eev="v $curr_dir/env.sh"
 alias erc="v ~/.bashrc"
 alias epr="v ~/.bash_profile"
 alias evr="v ~/.vimrc"
+alias esw="v ~/.config/sway/config"
 
 #Execute
 alias esh="exec bash"
