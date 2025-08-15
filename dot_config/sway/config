@@ -236,8 +236,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 default_border pixel
-gaps outer 10
-gaps inner 7
+gaps inner 10
 
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
