@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/bilbatez/Projects/practical-vim-2nd/insert_mode'
+let g:netrw_dirhist_3='/home/bilbatez/Projects/practical-vim-2nd'
 let g:netrw_dirhist_2='/home/bilbatez/Projects/fastfetch'
 let g:netrw_dirhist_1='/home/bilbatez/Projects'

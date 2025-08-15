@@ -17,7 +17,7 @@
             "3:term": "",
             "4:work": "",
             "5:music": "",
-            "6:docs": "",
+            "6:docs": "󰈙",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -31,13 +31,15 @@
         "spacing": 10
     },
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+        "interval": 1,
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip": false,
     },
     "cpu": {
-        "format": "{usage}% "
+        "format": "{usage}%  "
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}%  "
     },
     "battery": {
         "bat": "BAT0",
@@ -53,14 +55,14 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid}({signalStrength}%)  ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         //"scroll-step": 1,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} ",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
