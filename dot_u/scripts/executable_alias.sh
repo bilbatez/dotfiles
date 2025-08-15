@@ -47,6 +47,8 @@ alias esw="v ~/.config/sway/config"
 
 #Execute
 alias esh="exec bash"
+alias sht="shutdown 0"
+alias reb="reboot"
 
 #Copy Paste
 alias xc="xclip -selection clipboard"
