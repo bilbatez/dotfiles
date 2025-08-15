@@ -53,3 +53,9 @@ alias reb="reboot"
 #Copy Paste
 alias xc="xclip -selection clipboard"
 alias xv="xclip -o -selection clipboard"
+
+#VPN
+alias dvpnon="sudo wg-quick up Entropy-SG-171"
+alias dvpnoff="sudo wg-quick down Entropy-SG-171"
+alias vpnon="sudo wg-quick up"
+alias vpnoff="sudo wg-quick down"

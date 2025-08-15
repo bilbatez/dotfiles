@@ -84,4 +84,4 @@ cyan = '#94E2D5' # teal
 white = '#BAC2DE' # subtext1
 
 [window]
-opacity = 0.95
+opacity = 0.8
