@@ -2,7 +2,8 @@
 home_dir=$(echo $HOME)
 system_env_variables=(
     "${home_dir}/.cargo/bin",
-    "${home_dir}/.local/share/coursier/bin"
+    "${home_dir}/.local/share/coursier/bin",
+    "${home_dir}/.u/bin"
 )
 
 for env_variable in ${system_env_variables[@]}; do
