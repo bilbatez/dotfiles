@@ -55,19 +55,29 @@ alias xc="xclip -selection clipboard"
 alias xv="xclip -o -selection clipboard"
 
 #VPN
-default_vpn="Entropy-SG-171"
+default_vpn="ESG171"
 alias dvpnon="sudo wg-quick up $default_vpn"
 alias dvpnoff="sudo wg-quick down $default_vpn"
 alias dsvpnon="sudo systemctl start wg-quick@$default_vpn"
 alias dsvpnoff="sudo systemctl stop wg-quick@$default_vpn"
 alias dsvpnsta="sudo systemctl status wg-quick@$default_vpn"
 
+#WIFI
+alias wifilist="nmcli device wifi list"
+
 declare -A vpn_confs
 vpn_confs=(
-    [scmm]="EntropySC-CH-MM-2"
-    [schk]="EntropySC-CH-HK-2"
-    [thk]="EntropyT-HK-27-TOR"
+    [sg]="ESG171"
+    [scmm]="ESCCHMM2"
+    [schk]="ESCCHHK2"
+    [thk]="ETHK27T"
 )
+
+_print_vpn_confs() {
+    for key in "${!vpn_confs[@]}"; do
+        echo "$key: ${vpn_confs[$key]}"
+    done
+}
 
 _is_default_vpn_on() {
     sudo systemctl is-active --quiet wg-quick@$default_vpn
@@ -96,7 +106,7 @@ vpnon() {
 
     _is_default_vpn_on
     exit_code=$?
-    if [[ $exit_code != 0 ]]; then
+    if [[ $exit_code == 0 ]]; then
         echo "Default VPN service is on! Please shut it down."
         return $exit_code
     fi
