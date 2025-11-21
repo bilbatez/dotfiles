@@ -16,6 +16,7 @@ alias g="git"
 alias cma="cm add"
 alias cmar="cm re-add"
 alias cmcd="cd $(cm source-path)"
+alias cmp="cmcd && g add . && g commit && g push && cd -"
 
 #Git
 alias ga="g add ."
