@@ -14,3 +14,5 @@ PS1=' \[\e[38;5;177m\]󰻀 \[\e[38;5;32m\](\[\e[38;5;33;2m\]\w\[\e[22m\])\[\e[38
 
 fastfetch
 . "$HOME/.cargo/env"
+
+eval "$(zoxide init bash)"
