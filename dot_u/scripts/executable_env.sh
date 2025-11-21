@@ -1,6 +1,9 @@
 #!/bin/bash
 home_dir=$(echo $HOME)
-system_env_variables=("${home_dir}/.cargo/bin")
+system_env_variables=(
+    "${home_dir}/.cargo/bin",
+    "${home_dir}/.local/share/coursier/bin"
+)
 
 for env_variable in ${system_env_variables[@]}; do
 	case ":$PATH:" in 
@@ -12,3 +15,4 @@ export PATH=$PATH
 
 export TERMINAL=alacritty
 export MANPAGER="vim -M +MANPAGER -"
+export JAVA_HOME="/usr/lib/jvm/java-openjdk"
