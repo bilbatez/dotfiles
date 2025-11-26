@@ -1,0 +1,50 @@
+#!/bin/bash
+# Released into the Public Domain
+set -e
+date=$(date '+%H:%M:%S-%m-%d-%Y')
+backup=fedora-installed-packages-$date
+echo "Fedora Packages Backup System v1.0.3 by Alex Free"
+
+if [[ $EUID -ne 0 ]]; then
+    echo "You need to run fpbs as root or with sudo to continue"
+	exit 1
+fi
+
+if [ "$1" = "-b" ]; then
+    echo "Backup Mode"
+    count=$(rpm -qa | wc -l)
+    echo "Downloading $count packages to $backup..."
+    rm -rf $backup
+    mkdir $backup
+    cd $backup
+    rpm -qa | xargs -n1 dnf reinstall --assumeyes --downloadonly --destdir . 
+    test=$(ls | wc -l)
+    if [ $test == $count ]; then
+        echo "Successfully archived all $count packages installed as of $date!"
+    else
+    compare_installed=$(rpm -qa | sort -d)
+    compare_archived=$(ls -1 *.rpm | sed -e 's/\.rpm$//')
+    echo "$count packages are installed on your system."
+    echo "$test packages were downloadable and have been saved to the $backup directory."
+echo "Some packages were not able to be archived. These packages may be part of the OS, not installed from a currently available dnf repository, or installed manually."
+    echo "Press any key to review these unsaved packages"
+    read -p ""
+    diff <(echo "$compare_installed") <(echo "$compare_archived")
+     fi
+elif [ "$1" = "-r" ]; then
+    echo "Restore Mode"
+    if [ -d "$2" ]; then
+        cd "$2"
+        createrepo_c .
+        test=$(ls | wc -l)
+        echo "Installing $test local packages in $2..."
+        ls | xargs -n1 dnf --disablerepo=* --repofrompath local,. install --assumeyes
+        echo "Restore complete!"
+    else
+        echo "Can not find the backup directory: $2"
+    fi
+else
+    echo "Usage:"
+    echo "fpbs -b       Backup all installed packages in the current Fedora installation"
+    echo "fpbs -r <backupdirectory>      Restore all packages contained in a backup directory made previously with $0 -b"
+fi

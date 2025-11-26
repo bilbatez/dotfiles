@@ -1,11 +1,12 @@
 #!/bin/bash
 
-curr_dir=$(realpath $(dirname "$BASH_SOURCE[0]"))
+curr_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 #Init
 alias sudo="sudo "
 alias ~="cd ~"
-alias v="vim"
+alias e="echo"
+alias v="nvim"
 alias cm="chezmoi"
 alias ll="ls -alvFh"
 alias pc="pacman"
@@ -37,10 +38,12 @@ alias gst="g status"
 alias dow="cd ~/Downloads"
 alias prj="cd ~/Projects"
 alias scr="cd ~/.u/scripts"
+alias ubin="cd ~/.u/bin"
 
 #Edit
 alias eal="v $curr_dir/alias.sh"
 alias eev="v $curr_dir/env.sh"
+alias emn="v $curr_dir/main.sh"
 alias erc="v ~/.bashrc"
 alias epr="v ~/.bash_profile"
 alias evr="v ~/.vimrc"
@@ -68,74 +71,74 @@ alias wifilist="nmcli device wifi list"
 
 declare -A vpn_confs
 vpn_confs=(
-    [sg]="ESG171"
-    [scmm]="ESCCHMM2"
-    [schk]="ESCCHHK2"
-    [thk]="ETHK27T"
+  [sg]="ESG171"
+  [scmm]="ESCCHMM2"
+  [schk]="ESCCHHK2"
+  [thk]="ETHK27T"
 )
 
 _print_vpn_confs() {
-    for key in "${!vpn_confs[@]}"; do
-        echo "$key: ${vpn_confs[$key]}"
-    done
+  for key in "${!vpn_confs[@]}"; do
+    echo "$key: ${vpn_confs[$key]}"
+  done
 }
 
 _is_default_vpn_on() {
-    sudo systemctl is-active --quiet wg-quick@$default_vpn
-    return $?
+  sudo systemctl is-active --quiet wg-quick@$default_vpn
+  return $?
 }
 
 _get_vpn_config() {
-    choice="$1"
-    if [[ -v vpn_confs["$choice"] ]]; then
-        echo "${vpn_confs[$choice]}" 
-        return 0
-    else
-        echo "VPN Config Not Found!"
-        return 1
-    fi
+  choice="$1"
+  if [[ -v vpn_confs["$choice"] ]]; then
+    echo "${vpn_confs[$choice]}"
+    return 0
+  else
+    echo "VPN Config Not Found!"
+    return 1
+  fi
 }
 
 vpnon() {
-    choice="$1"
-    config=$(_get_vpn_config "$choice")
-    exit_code=$?
-    if [[ $exit_code != 0 ]]; then
-        echo "$config"
-        return $exit_code
-    fi
+  choice="$1"
+  config=$(_get_vpn_config "$choice")
+  exit_code=$?
+  if [[ $exit_code != 0 ]]; then
+    echo "$config"
+    return $exit_code
+  fi
 
-    _is_default_vpn_on
-    exit_code=$?
-    if [[ $exit_code == 0 ]]; then
-        echo "Default VPN service is on! Please shut it down."
-        return $exit_code
-    fi
+  _is_default_vpn_on
+  exit_code=$?
+  if [[ $exit_code == 0 ]]; then
+    echo "Default VPN service is on! Please shut it down."
+    return $exit_code
+  fi
 
-    $(sudo wg-quick up $config)
-    exit_code=$?
-    if [[ $exit_code != 0 ]]; then
-        echo "Error on wg-quick down $config!"
-        return $exit_code
-    fi
-    echo "Connected to $config!"
+  eval "$(sudo wg-quick up "$config")"
+  exit_code=$?
+  if [[ $exit_code != 0 ]]; then
+    echo "Error on wg-quick down $config!"
+    return $exit_code
+  fi
+  echo "Connected to $config!"
 }
 
 vpnoff() {
-    choice="$1"
-    config=$(_get_vpn_config "$choice")
-    exit_code=$?
-    if [[ $exit_code != 0 ]]; then
-        echo "$config"
-        return $exit_code
-    fi
+  choice="$1"
+  config=$(_get_vpn_config "$choice")
+  exit_code=$?
+  if [[ $exit_code != 0 ]]; then
+    echo "$config"
+    return $exit_code
+  fi
 
-    $(sudo wg-quick down $config)
-    exit_code=$?
-    if [[ $exit_code != 0 ]]; then
-        echo "Error on wg-quick up $config!"
-        return $exit_code
-    fi
-    echo "Disconnected from $config!"
+  eval "$(sudo wg-quick down "$config")"
+  exit_code=$?
+  if [[ $exit_code != 0 ]]; then
+    echo "Error on wg-quick up $config!"
+    return $exit_code
+  fi
+  echo "Disconnected from $config!"
 
 }
