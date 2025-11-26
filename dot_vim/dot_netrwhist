@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/bilbatez/Projects/fpinscala/src/main/scala/fpinscala/exercises/errorhandling'
+let g:netrw_dirhist_2='/home/bilbatez/Projects/fpinscala/src/main/scala/fpinscala/exercises'
+let g:netrw_dirhist_1='/home/bilbatez/Projects/fpinscala/src/main/scala/fpinscala'
+let g:netrw_dirhist_0='/home/bilbatez/Projects/fpinscala/src/main/scala'
+let g:netrw_dirhist_9='/home/bilbatez/Projects/fpinscala/src/main'
+let g:netrw_dirhist_8='/home/bilbatez/Projects/fpinscala/src'
+let g:netrw_dirhist_7='/home/bilbatez/Projects/fpinscala'
+let g:netrw_dirhist_6='/home/bilbatez/Projects/fpinscala/project'
+let g:netrw_dirhist_5='/home/bilbatez/Projects/fpinscala'
+let g:netrw_dirhist_4='/home/bilbatez/Projects/fpinscala/src'
