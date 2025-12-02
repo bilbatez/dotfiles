@@ -53,6 +53,7 @@ alias etd="v ~/.u/TODO.md"
 #Execute
 alias esh="exec bash"
 alias sht="shutdown 0"
+alias sus="systemctl suspend"
 alias reb="reboot"
 
 #Copy Paste
@@ -69,6 +70,12 @@ alias dsvpnsta="sudo systemctl status wg-quick@$default_vpn"
 
 #WIFI
 alias wifilist="nmcli device wifi list"
+wificonup() {
+  nmcli con up "$1"
+}
+wificonmod() {
+  nmcli con modify "$1" connection.interface-name "$2"
+}
 
 declare -A vpn_confs
 vpn_confs=(

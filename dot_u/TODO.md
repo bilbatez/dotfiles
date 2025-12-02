@@ -6,4 +6,4 @@
 - Create script priority under `.u/scripts/main.sh`. `env.sh` is loaded after `alias.sh`, which means that I can't use custom environment variables under scripts folder.
 - Possibly rename `./u/scripts` folder into `./u/config`? since I have `./u/bin` for custom scripts too
 - Update Rofi Launcher style, cause it's boring.
-- Create `dnf` plugin to launch `fbps` or something similiar after install or upgrade
+- Create `dnf` plugin to launch `fbps` or something simliar after install or upgrade
