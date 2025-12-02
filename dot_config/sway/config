@@ -35,7 +35,7 @@ set $base #1e1e2e
 set $mantle #181825
 set $crust #11111b
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left j
 set $down k
@@ -63,6 +63,7 @@ output DP-2 mode 2560x1440@120Hz position 1920 0 scale 1
 output HDMI-A-3 resolution 1920x1080 position 0 0 scale 1
 workspace 1 output DP-2
 workspace 2 output HDMI-A-3
+focus output DP-2
 #
 # Example configuration:
 #
