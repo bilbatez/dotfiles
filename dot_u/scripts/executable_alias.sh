@@ -37,7 +37,9 @@ alias gst="g status"
 #CD
 alias dow="cd ~/Downloads"
 alias prj="cd ~/Projects"
-alias scr="cd ~/.u/scripts"
+alias chm="cd ~/.config"
+alias uhm="cd ~/.u"
+alias uscr="cd ~/.u/scripts"
 alias ubin="cd ~/.u/bin"
 
 #Edit
