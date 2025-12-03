@@ -14,10 +14,18 @@ alias pr="paru"
 alias g="git"
 
 #Chezmoi
+alias cmu="cm update"
 alias cma="cm add"
 alias cmar="cm re-add"
 alias cmcd="cd $(cm source-path)"
-alias cmp="cmcd && g add . && g commit && g push && cd -"
+_cmp() {
+  cmcd
+  if ! git diff --quiet || ! git diff --cached --quiet; then
+    g add . && g commit && g push
+  fi
+  cd - || return
+}
+alias cmp="_cmp"
 
 #Git
 alias ga="g add ."
