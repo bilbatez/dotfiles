@@ -26,6 +26,7 @@ _cmp() {
   cd - || return
 }
 alias cmp="_cmp"
+alias cmst="cmcd && g status && cd -"
 
 #Git
 alias ga="g add ."
