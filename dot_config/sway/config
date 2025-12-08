@@ -7,7 +7,7 @@
 ### Variables
 #
 # Constants
-set $bg /home/bilbatez/Pictures/wallhaven-lym63y.jpg
+set $bg ~/.u/wallpapers/wallhaven-lym63y.jpg
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
 set $pink #f5c2e7
