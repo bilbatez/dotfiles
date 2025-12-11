@@ -4,7 +4,7 @@ curr_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 #Init
 alias sudo="sudo "
-alias ~="cd ~"
+alias ~="z ~"
 alias e="echo"
 alias v="nvim"
 alias cm="chezmoi"
@@ -17,16 +17,16 @@ alias g="git"
 alias cmu="cm update"
 alias cma="cm add"
 alias cmar="cm re-add"
-alias cmcd="cd $(cm source-path)"
+alias cmcd="z $(cm source-path)"
 _cmp() {
   cmcd
   if ! git diff --quiet || ! git diff --cached --quiet; then
     g add . && g commit && g push
   fi
-  cd - || return
+  z - || return
 }
 alias cmp="_cmp"
-alias cmst="cmcd && g status && cd -"
+alias cmst="cmcd && g status && z -"
 
 #Git
 alias ga="g add ."
@@ -45,12 +45,12 @@ alias gr="g rebase -i"
 alias gst="g status"
 
 #CD
-alias dow="cd ~/Downloads"
-alias prj="cd ~/Projects"
-alias conf="cd ~/.config"
-alias uhm="cd ~/.u"
-alias uscr="cd ~/.u/scripts"
-alias ubin="cd ~/.u/bin"
+alias dow="z ~/Downloads"
+alias prj="z ~/Projects"
+alias conf="z ~/.config"
+alias uhm="z ~/.u"
+alias uscr="z ~/.u/scripts"
+alias ubin="z ~/.u/bin"
 
 #Edit
 alias eal="v $curr_dir/alias.sh"

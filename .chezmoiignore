@@ -1,3 +1,7 @@
 # Ignore Local Conf
 **/alacritty/alacritty.toml
 **/btop/btop.conf
+
+# SSH
+.ssh/*
+!.ssh/config

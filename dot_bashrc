@@ -17,5 +17,3 @@ fastfetch
 . "$HOME/.cargo/env"
 
 eval "$(zoxide init bash)"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
