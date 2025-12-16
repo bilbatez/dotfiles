@@ -8,10 +8,11 @@ alias ~="z ~"
 alias e="echo"
 alias v="nvim"
 alias cm="chezmoi"
-alias ll="ls -alvFh"
+alias ll="ls -alvFh --color=auto"
 alias pc="pacman"
 alias pr="paru"
 alias g="git"
+alias grep="grep --color=auto"
 
 #Chezmoi
 alias cmu="cm update"

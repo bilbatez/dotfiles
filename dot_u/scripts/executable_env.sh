@@ -15,8 +15,8 @@ export BUN_INSTALL="$HOME/.bun"
 
 system_env_variables=(
   "${home_dir}/.cargo/bin"
-  "${home_dir}/.local/share/coursier/bin"
   "${home_dir}/.u/bin"
+  "${home_dir}/.local/share/coursier/bin"
   "$JAVA_HOME/bin"
   "$BUN_INSTALL/bin"
 )
