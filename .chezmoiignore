@@ -5,3 +5,4 @@
 # SSH
 .ssh/*
 !.ssh/config
+!.ssh/config.d

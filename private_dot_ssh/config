@@ -1,10 +1,6 @@
+IgnoreUnknown UseKeychain
+
 Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
-
-Match exec "uname | grep -q Darwin"
   UseKeychain yes
-  AddKeysToAgent yes
-
-Match exec "uname | grep -q Linux"
-  AddKeysToAgent yes
