@@ -9,3 +9,7 @@ fi
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
+
+if [[ "$OSTYPE" == "linux-gnu"* && -z "$SSH_AUTH_SOCK" ]]; then
+  eval "$(ssh-agent -s)"
+fi
