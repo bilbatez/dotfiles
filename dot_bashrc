@@ -18,6 +18,7 @@ eval "$(zoxide init bash)"
 
 # SSH Add Once
 DEFAULT_SSH_KEY="$HOME/.ssh/id_ed25519"
-if ! ssh-add -l | grep -q "$(ssh-keygen -lf "$DEFAULT_SSH_KEY" | awk '{print $2}')"; then
+
+if [[ "$OSTYPE" == "linux-gnu" ]] && ! ssh-add -l | grep -q "$(ssh-keygen -lf "$DEFAULT_SSH_KEY" | awk '{print $2}')"; then
   ssh-add "$DEFAULT_SSH_KEY"
 fi
