@@ -5,10 +5,12 @@ curr_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 #Init
 alias sudo="sudo "
 alias ~="z ~"
+alias cd="z"
 alias e="echo"
 alias v="nvim"
 alias cm="chezmoi"
 alias l="ls -alvFh --color=auto"
+alias ll="l"
 alias pc="pacman"
 alias pr="paru"
 alias g="git"
