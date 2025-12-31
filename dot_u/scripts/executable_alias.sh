@@ -46,6 +46,7 @@ alias gpu="g push -u origin"
 alias gpl="g pull"
 alias gr="g rebase -i"
 alias gst="g status"
+alias gfa="g fetch --all"
 
 #CD
 alias dow="z ~/Downloads"
