@@ -6,6 +6,7 @@ curr_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 alias sudo="sudo "
 alias ~="z ~"
 alias cd="z"
+alias c="z"
 alias e="echo"
 alias v="nvim"
 alias cm="chezmoi"
