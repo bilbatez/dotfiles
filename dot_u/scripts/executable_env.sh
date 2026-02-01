@@ -2,8 +2,10 @@
 home_dir=$HOME
 u_dir=$HOME/.u
 
+JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+
 case "$OSTYPE" in
-linux-gnu*) export JAVA_HOME="/usr/lib/jvm/java-openjdk" ;;
+linux-gnu*) export JAVA_HOME ;;
 darwin*) export JAVA_HOME="/opt/homebrew/opt/openjdk" ;;
 esac
 
