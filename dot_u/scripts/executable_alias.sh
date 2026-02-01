@@ -16,12 +16,16 @@ alias pc="pacman"
 alias pr="paru"
 alias g="git"
 alias grep="grep --color=auto"
+_penv() {
+  echo $PATH | awk 'BEGIN { RS=":" } { print $0 }'
+}
+alias penv="_penv"
 
 #Chezmoi
 alias cmu="cm update"
 alias cma="cm add"
 alias cmar="cm re-add"
-alias cmcd="z $(cm source-path)"
+alias cmcd="z \$(cm source-path)"
 _cmp() {
   cmcd
   if ! git diff --quiet || ! git diff --cached --quiet; then

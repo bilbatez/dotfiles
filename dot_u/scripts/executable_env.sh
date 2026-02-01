@@ -3,12 +3,16 @@ home_dir=$HOME
 u_dir=$HOME/.u
 
 JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+COURSIER_HOME=${home_dir}/.local/share/coursier
 
 case "$OSTYPE" in
-linux-gnu*) export JAVA_HOME ;;
-darwin*) export JAVA_HOME="/opt/homebrew/opt/openjdk" ;;
+darwin*)
+  JAVA_HOME="/opt/homebrew/opt/openjdk"
+  COURSIER_HOME="/Users/bilbatez/Library/Application Support/Coursier"
+  ;;
 esac
 
+export JAVA_HOME
 export U_DIR=$u_dir
 export U_SCRIPTS_DIR=$u_dir/scripts
 export TERMINAL=alacritty
@@ -18,7 +22,7 @@ export BUN_INSTALL="$HOME/.bun"
 system_env_variables=(
   "${home_dir}/.cargo/bin"
   "${home_dir}/.u/bin"
-  "${home_dir}/.local/share/coursier/bin"
+  "$COURSIER_HOME/bin"
   "$JAVA_HOME/bin"
   "$BUN_INSTALL/bin"
 )
