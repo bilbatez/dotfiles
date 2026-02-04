@@ -37,7 +37,8 @@ alias cmp="_cmp"
 alias cmst="cmcd && g status && z -"
 
 #Git
-alias ga="g add ."
+alias ga="g add"
+alias gaa="g add ."
 alias gc="g commit"
 alias gac="ga && gc"
 alias gca="g commit --amend"
